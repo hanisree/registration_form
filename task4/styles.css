@@ -1,0 +1,215 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #f0f2f5;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    width: 100%;
+    background: #4CAF50;
+    color: #fff;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0 0 0;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffeb3b;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 2rem 0;
+    width: 100%;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    padding: 2rem;
+    width: calc(50% - 2rem);
+    box-sizing: border-box;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card h2 {
+    margin-top: 0;
+    color: #4CAF50;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  /*  background: linear-gradient(135deg, #FFDDC1 10%, #FF9A8B 100%);*/
+    color: #333;
+}
+
+.profile-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-picture {
+    border-radius: 50%;
+    margin-right: 1rem;
+    width: 150px;
+    height: 150px;
+    border: 3px solid #FF9A8B;
+}
+
+.profile-details {
+    text-align: left;
+}
+
+.profile-details h3 {
+    margin: 0;
+    color: #FF6F61;
+}
+
+.profile-details p {
+    margin: 0.5rem 0;
+}
+
+.stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.stat-card {
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0.5rem;
+    flex: 1 1 calc(50% - 1rem);
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.stat-card i {
+    margin-bottom: 0.5rem;
+}
+
+.stat-users {
+    background: #ff6e61ab;
+    color: #fff;
+}
+
+.stat-users:hover {
+    background: #ff5c47c6;
+}
+
+.stat-sales {
+    background: #ffd9009b;
+    color: #333;
+}
+
+.stat-sales:hover {
+    background: #ffc107c8;
+}
+
+.stat-performance {
+    background: #4caf4f97;
+    color: #fff;
+}
+
+.stat-performance:hover {
+    background: #45a049c2;
+}
+
+.stat-tasks {
+    background: #892be2a4;
+    color: #fff;
+}
+
+.stat-tasks:hover {
+    background: #6a0dadce;
+}
+
+form label {
+    display: block;
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form button {
+    background: #FF6F61;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: #FF5B47;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+        margin: 1rem 0;
+    }
+    
+    .stat-card {
+        flex: 1 1 100%;
+    }
+}
