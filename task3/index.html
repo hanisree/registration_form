@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Quiz</title>
+<style>
+  body { 
+    font-family: Arial, sans-serif;
+    background-color: rgb(237, 237, 215);
+}
+  .quiz-container { margin: 20px; }
+  .question { margin-bottom: 10px; }
+  .options { list-style-type: none; padding: 0; }
+  .options li { margin-bottom: 5px; }
+  .timer { margin-top: 30px; }
+</style>
+</head>
+<body>
+<div class="quiz-container">
+  <div id="question" class="question"></div>
+  <ul id="options" class="options"></ul>
+  <button id="submit">Submit Answer</button>
+  <div id="timer" class="timer"></div>
+  <div id="score" class="score"></div>
+</div>
+
+<script>
+// Quiz questions
+const questions = [
+  { question: "Q.What is the capital of France?", options: ["A.Paris", "B.London", "C.Rome", "D.Madrid"], answer: "Paris" },
+  { question: "Q.The most electronegative element among the following is?", options: ["A.sodium " ,"B.bromine", "C.Fluorine", "D.Oxygen"], answer:"Fluorine"}
+];
+let currentQuestion = 0;
+let score = 0;
+let totalQuestions = questions.length;
+
+// Timer
+let time = 60; // seconds
+const timerElement = document.getElementById('timer');
+const interval = setInterval(function() {
+  timerElement.textContent = `Time Remaining: ${time}`;
+  time--;
+  if (time < 0) {
+    clearInterval(interval);
+    // End the quiz
+  }
+}, 1000);
+
+// Display question
+function displayQuestion() {
+  const questionElement = document.getElementById('question');
+  const optionsElement = document.getElementById('options');
+  questionElement.textContent = questions[currentQuestion].question;
+  optionsElement.innerHTML = '';
+  questions[currentQuestion].options.forEach(option => {
+    const li = document.createElement('li');
+    li.textContent = option;
+    li.onclick = selectOption;
+    optionsElement.appendChild(li);
+  });
+}
+
+// Select option
+function selectOption(event) {
+  const selectedOption = event.target.textContent;
+  const correctAnswer = questions[currentQuestion].answer;
+  if (selectedOption === correctAnswer) {
+    score++;
+  }
+  currentQuestion++;
+  if (currentQuestion < totalQuestions) {
+    displayQuestion();
+  } else {
+    // End the quiz
+    clearInterval(interval);
+    document.getElementById('score').textContent = `Your score: ${score}`;
+  }
+}
+
+// Start the quiz
+displayQuestion();
+
+</script>
+</body>
+</html>
